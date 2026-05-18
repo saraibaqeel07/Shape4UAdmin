@@ -1,15 +1,13 @@
 // Development URLs
 const DEV = {
-  // API_URL: "https://kids-read-0200f571e14c.herokuapp.com/api",
-  // API_URL: "https://alif-kids-staging-423e69b228fa.herokuapp.com/api",
-API_URL:"http://52.56.81.99:5000/api",
-  IMG_URL: "https://media.kidsread.app/",
-  FALLBACK_URL: "https://kids-read-0200f571e14c.herokuapp.com/public/",
+  API_URL: import.meta.env.VITE_API_URL,
+  IMG_URL: import.meta.env.VITE_IMG_URL,
+  FALLBACK_URL: import.meta.env.VITE_FALLBACK_URL,
 };
-  
+
 // Production URLs
-const PROD = {  
-  API_URL: 'http://52.56.81.99:5000/api',
+const PROD = {
+  API_URL: import.meta.env.VITE_API_URL,
   IMG_URL: import.meta.env.VITE_IMG_URL,
   FALLBACK_URL: import.meta.env.VITE_FALLBACK_URL
 };

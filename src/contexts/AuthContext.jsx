@@ -82,10 +82,15 @@ export const AuthProvider = ({ children }) => {
 console.log("response of login",response?.data)
       const { token, user} = response.data;
 
+      if (user?.role !== 'ADMIN') {
+        enqueueSnackbar('Access denied. Admins only.', { variant: 'error' });
+        throw new Error('Access denied');
+      }
+
       // Save auth data
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
-      
+
       // Update state and axios defaults
       setUser(user);
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
